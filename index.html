@@ -2,60 +2,59 @@
 <!--Audrey Alexander, Period 7/8, Section 85, 12/15/22-->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <head>
     <title>Document</title>
-    <script>
-        function initialize()
-        {
-            d1Output = document.getElementById("dice1");
-            d2Output = document.getElementById("dice2");
-            d3Output = document.getElementById("dice3");
-            meanOutput = document.getElementById("mean");
-            medianOutput = document.getElementById("med");
+    <script src="script.js"></script>
+    <style>
+        h1 {
+            color:rgb(84, 32, 133)
+        }
+        body {
+            color: black;
+            font-family: Arial;
+        }
 
-            d1 = 0;
-            d2 = 0;
-            d3 = 0;
-            mean = 0;
-            median = 0;
-            display();
+        table {
+            border: solid black;
+            text-align: center;
         }
-        function data(){
-            mean = (d1 + d2 + d3) / 3;
-            median = (d1 + d3) / 2
-            display();
+
+        div {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 30px;
         }
-        function display(){
-            d1Output.innerHTML = Math.floor(Math.random() * 6);
-            d2Output.innerHTML = Math.floor(Math.random() * 6);
-            d3Output.innerHTML = Math.floor(Math.random() * 6);
-            meanOutput.innerHTML = mean;
-            medianOutput.innerHTML = median;
-        }
-    </script>
+
+    </style>
 </head>
-<body onload = "initialize();">
-    <h1>Dice 1: </h1>
-    <h1 id="dice1"></h1>
-    <h2>Dice 2: </h2>
-    <h2 id="dice2"></h2>
-    <h2>Dice 3: </h2>
-    <h2 id="dice3"></h2>
-    <h2>Mean: </h2>
-    <h2 id="mean"></h2>
-    <h2>Median:</h2>
-    <h2 id="med"></h2>
-    <hr />
-    <form id="f1">
-        How many dice to roll (1,2,3): <input type="text" name="f1answer">
-    </form>
-    <form id="f2">
-        How many times to roll the dice:  <input type="text" name="f2answer">
-    </form>
-    <button onclick="f1click();"> Submit </button> 
- 
-   
+<body>
+    <body onload = "initialize();">
+    <h1>Dice Roll</h1>
+		<p>
+			<form id = "inputform">Number of Dice to Roll (1, 2, 3): <input name = "nDice" type = "text">
+                <br>
+                Number of Times To Roll The Dice: <input name = "nRolls" type = "text">
+			</form>
+      <br>
+			<button onclick = "evaluateRoll();">Submit</button>
+      <br>
+		</p>
+		
+		<table id = "frequencytable">
+			<tr>
+				<th>Nums</th>
+				<th>Frequencies</th>
+			</tr>
+		</table>
+<br>
+        <table id = "dicetable">
+			<tr id = "dicetableheader">
+				<th>Mean</th>
+				<th>Mode</th>
+				<th>Median</th>
+			</tr>
+		</table>
+
+	</body>
 </body>
 </html>
